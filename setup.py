@@ -26,7 +26,7 @@ if __name__ == "__main__":
         requirements_list = file.read_text().splitlines()
         if file.name == "prod":
             install_requires = requirements_list
-        elif file.name.startswith('extra-'):
+        elif file.name.startswith("extra-"):
             extra_name = file.name[6:]
             extras_requires[extra_name] = requirements_list
             all_requirements.extend(requirements_list)
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         python_requires=">=3.9",
         packages=setuptools.find_packages(exclude=["tests"]),
         url="https://medmammeri.github.io/python-template/",
-        author= "Mohamed Rafik Mammeri",
+        author="Mohamed Rafik Mammeri",
         install_requires=install_requires,
         setup_requires=["setuptools_scm"],
         extras_require=extras_requires,

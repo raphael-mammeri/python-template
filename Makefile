@@ -22,6 +22,10 @@ test-dependencies: upgrade-pip
 doc-dependencies: upgrade-pip
 	pip install -r requirements/doc
 
+.PHONY: lint-dependencies ## ⏬ Install doc dependencies
+lint-dependencies: upgrade-pip
+	pip install -r requirements/lint
+
 .PHONY: dev-dependencies ## ⏬ Install dev dependencies
 dev-dependencies: upgrade-pip
 	pip install -r requirements/dev

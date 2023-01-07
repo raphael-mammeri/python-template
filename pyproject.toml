@@ -11,7 +11,7 @@ build-backend = "setuptools.build_meta"
 # pytest options
 [tool.pytest.ini_options]
 addopts = '''
---cov=creditscoring
+--cov=my_package
 --cov-report=term-missing
 '''
 testpaths = "tests"
@@ -82,7 +82,7 @@ single_line_exclusions = [
 ]
 
 known_first_party = [
-    "creditscoring",
+    "my_package",
     "tests",
 ]
 

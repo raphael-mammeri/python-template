@@ -25,7 +25,9 @@ jobs:
           name: wheels
           path: wheels/*.whl
 
-  lint-flake8:
+
+
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -37,11 +39,8 @@ jobs:
           cache: 'pip'
           cache-dependency-path: setup.py
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          FLAKE8=$(cat requirements/lint | grep flake8== || echo "flake8")
-          pip3 install ${FLAKE8}
-      - name: Lint with flake8
+        run: lint-dependencies
+      - name: flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
           # flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -49,64 +48,11 @@ jobs:
           # flake8 . --count --exit-zero --max-complexity=10 
           # --max-line-length=127 --statistics
           flake8 .
-
-  lint-black:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-          cache: 'pip'
-          cache-dependency-path: setup.py
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          BLACK=$(cat requirements/lint | grep black== || echo "black")
-          pip3 install ${BLACK}
-      - name: Lint with black
+      - name: black
         run: black --check --diff .
-
-  lint-mypy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-          cache: 'pip'
-          cache-dependency-path: setup.py
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          MYPY=$(cat requirements/lint | grep mypy== || echo "mypy")
-          pip3 install ${MYPY}
-      - name: Lint with mypy
+      - name: mypy
         run: mypy --show-error-codes .
-
-  lint-isort:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-          cache: 'pip'
-          cache-dependency-path: setup.py
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          ISORT=$(cat requirements/dev | grep isort== || echo "isort")
-          COLORAMA=$(cat requirements/lint | grep colorama== || echo "colorama")
-          pip3 install ${ISORT}
-          pip3 install ${COLORAMA}
-      - name: Lint with black
+      - name: isort
         run: isort --check-only .
 
   unit-tests:
@@ -121,9 +67,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: setup.py
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          make install
+        run: make test-dependencies
       - name: unit-tests
         run: pytest .
 
