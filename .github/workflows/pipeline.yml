@@ -39,7 +39,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: setup.py
       - name: Install dependencies
-        run: lint-dependencies
+        run: make lint-dependencies
       - name: flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
