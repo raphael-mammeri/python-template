@@ -4,7 +4,6 @@ import pydantic
 
 
 class Settings(pydantic.BaseSettings):
-
     class Config:
         # .env variables must have following prefix
         env_prefix = "MY_PACKAGE_"
