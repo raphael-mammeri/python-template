@@ -1,0 +1,6 @@
+mypy==0.991
+isort==5.11.4
+# for isort color_output
+colorama==0.4.6
+flake8==6.0.0
+black==22.12.0

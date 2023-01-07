@@ -15,8 +15,7 @@ jobs:
         with:
           python-version: 3.9
       - run: |
-          make install_doc
-          make install
+          make dev-environment
       - run: |
           cd docs 
           mkdocs gh-deploy --force

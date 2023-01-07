@@ -14,31 +14,34 @@ import setuptools
 
 
 if __name__ == "__main__":
-    project_name = "Credit Scoring Model"
-    project_description = "Credit Scoring Modelling project based on public data"
-    package_name = "Credit_Scoring"
+    project_name = "python_template"
+    project_description = "A python package template."
+    package_name = "python_template"
     requirements_path = pathlib.Path(__file__).parent / "requirements"
 
-    install_requires = requirements_path.joinpath("prod").read_text().splitlines()
-    dev_requires = requirements_path.joinpath("dev").read_text().splitlines()
+    extras_requires: Dict[str, List[str]] = {}
+    all_requirements = []  # except prod
 
-    extras_requires: Dict[str, List[str]] = {"dev": dev_requires}
+    for file in requirements_path.iterdir():
+        requirements_list = file.read_text().splitlines()
+        if file.name == "prod":
+            install_requires = requirements_list
+        elif file.name.startswith('extra-'):
+            extra_name = file.name[6:]
+            extras_requires[extra_name] = requirements_list
+            all_requirements.extend(requirements_list)
+        else:
+            all_requirements.extend(requirements_list)
 
-    extras_requires_path = requirements_path / "extras"
-    if extras_requires_path.is_dir():
-        all_requires = []
-        for extra in extras_requires_path.iterdir():
-            extras_requires[extra.name] = extra.read_text().splitlines()
-            all_requires.extend(extras_requires[extra.name])
-
-        extras_requires["all"] = all_requires
-        extras_requires["dev"].extend(all_requires)
+    extras_requires["dev"] = all_requirements
 
     setuptools.setup(
         name=project_name,
         description=project_description,
         python_requires=">=3.9",
         packages=setuptools.find_packages(exclude=["tests"]),
+        url="https://medmammeri.github.io/python-template/",
+        author= "Mohamed Rafik Mammeri",
         install_requires=install_requires,
         setup_requires=["setuptools_scm"],
         extras_require=extras_requires,
@@ -46,6 +49,7 @@ if __name__ == "__main__":
         entry_points={
             "console_scripts": (f"{project_name}={package_name}.__main__:app",),
         },
+        license="MIT license",
         include_package_data=True,
         zip_safe=False,
     )
