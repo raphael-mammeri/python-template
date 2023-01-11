@@ -74,3 +74,7 @@ clean-test:
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
+
+.PHONY: serve  ## serve mkdocs
+serve:
+	cd docs && mkdocs serve
