@@ -47,4 +47,3 @@ plugins:
           options:
             show_source: false
             docstring_style: numpy
-  - typeset
