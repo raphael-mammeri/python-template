@@ -29,7 +29,8 @@ theme:
 
 
 nav:
-    - Code Reference: reference/
+  - Home: index.md
+  - Code documentation: reference/
 
 plugins:
   - search
@@ -46,3 +47,4 @@ plugins:
           options:
             show_source: false
             docstring_style: numpy
+  - typeset

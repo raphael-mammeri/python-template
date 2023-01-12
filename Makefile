@@ -75,6 +75,10 @@ clean-test:
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
+.PHONY: clean-reference-doc  ## 🧹 Remove reference documentation
+clean-reference-doc:
+	@ if [ -d docs/docs/reference ]; then rm -Rf docs/docs/reference; fi
+
 .PHONY: serve  ## serve mkdocs
-serve:
-	cd docs && mkdocs serve
+serve: clean-reference-doc
+	@ cd docs && mkdocs serve
