@@ -1,6 +1,63 @@
-# Hello
+# Math
+> :warning: **If you are using mobile browser**: Be very careful here! 
+
+!!!note tag="voila"
+
+    Theorem 1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et 
+    euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+$$
+\begin{equation} \mathfrak L\to \mathbb G_m \end{equation}
+$$
+
+$$
+\begin{equation}\mathfrak T \to \mathbb G_m \end{equation}
+$$
+
+$$
+\left\{\sin\left(\frac{1}{n}\right)\right\}_{n}^ {\infty}
+$$  
+
+Let Omega be $\Omega$ be a set. @voila
+
+{% extends "base.html" %}
+
+{% block announce %}
+  <!-- Add announcement here, including arbitrary HTML -->
+{% endblock %}
+
+
 This is the documentation for the python package template [link](https://gitlab.com/my_group259/data/data-template)
 features
+
+$$
+\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
+$$
+# Math
+
+\DeclareMathOperator{\Lie}{Lie} 
+
+$k \to  \sin$
+
+$$
+\begin{equation}
+\operatorname{h}^0(X,\Omega^1_{X/k}\otimes_k \operatorname{Lie}(G))
+\end{equation} \\   
+\lim_{h \to 0 } \frac{f(x+h)-f(x)}{h}
+$$
+
+:octicons-heart-fill-24:{ .heart }
+
+- [x] Lorem ipsum dolor sit amet, consectetur adipiscing elit
+- [ ] Vestibulum convallis sit amet nisi a tincidunt
+    * [x] In hac habitasse platea dictumst
+    * [x] In scelerisque nibh non dolor mollis congue sed et metus
+    * [ ] Praesent sed risus massa
+- [ ] Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque
+
+
 
 Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit.[^2]
 

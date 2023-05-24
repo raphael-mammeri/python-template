@@ -6,8 +6,8 @@ copyright: Copyright &copy; Mammeri 2023
 
 theme:
   language: en
-  font:
-    text: IBM Plex Mono
+#  font:
+#    text: IBM Plex Mono
   icon:
     repo: fontawesome/brands/gitlab
   name: material
@@ -26,10 +26,17 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
+  features:
+    - header.autohide
+    - announce.dismiss
 
 nav:
   - Home: index.md
+  - Probability Theory:
+    - measure theory: probability/measure theory.md
+    - funtions: probability/funtions.md
+  - Dev Tools:
+    - docker: docker.md
   - Code documentation: reference/
 
 plugins:
@@ -47,6 +54,22 @@ plugins:
           options:
             show_source: false
             docstring_style: numpy
+  - enumerate-headings:
+      toc_depth: 2
+      strict: true
+      increment_across_pages: true
+      include:
+        - "*"
+      exclude:
+        - index.md
+        - another_page.md
+      restart_increment_after:
+        - docker.md
+  - numbered-admonitions:
+      admonition_types_to_number:
+          'note': 'Theorem'
+          'info': 'Un autre titre'
+          'tip': 'Un autre titre'
 
 markdown_extensions:
 
@@ -86,3 +109,14 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
