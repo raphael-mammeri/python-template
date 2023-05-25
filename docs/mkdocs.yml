@@ -32,11 +32,11 @@ theme:
 
 nav:
   - Home: index.md
+  - generic: generic.md
   - Probability Theory:
     - measure theory: probability/measure theory.md
     - funtions: probability/funtions.md
-  - Dev Tools:
-    - docker: docker.md
+  - Contributing: project/contribution.md
   #- Code documentation: reference/
 
 plugins:
@@ -54,8 +54,11 @@ plugins:
           options:
             show_source: false
             docstring_style: numpy
+          setup_commands:
+            - import sys
+            - sys.path.append("my_package")
   - enumerate-headings:
-      toc_depth: 2
+      toc_depth: 3
       strict: true
       increment_across_pages: true
       include:
@@ -64,7 +67,7 @@ plugins:
         - index.md
         - another_page.md
       restart_increment_after:
-        - docker.md
+        - probability/measure theory.md
   - numbered-admonitions:
       admonition_types_to_number:
           'note': 'Theorem'
