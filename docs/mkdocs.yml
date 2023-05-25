@@ -37,7 +37,7 @@ nav:
     - funtions: probability/funtions.md
   - Dev Tools:
     - docker: docker.md
-  - Code documentation: reference/
+  #- Code documentation: reference/
 
 plugins:
   - search
