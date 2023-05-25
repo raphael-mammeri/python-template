@@ -56,7 +56,7 @@ plugins:
             docstring_style: numpy
           setup_commands:
             - import sys
-            - sys.path.append("..")
+            - sys.path.append("../my_package")
   - enumerate-headings:
       toc_depth: 3
       strict: true
