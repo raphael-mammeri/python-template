@@ -12,7 +12,7 @@ models and their properties.
 
  Let's see an illustration in the case of real number $\mathbb{R}.$
 
-## Lebesgue Measure on Real Numbers
+### Lebesgue Measure on Real Numbers
 Consider an interval  $I = [a, b] \subset \mathbb{R}$  where $b>a.$ 
 The most 
 natural measure one would assign to the interval $I$ would be $b-a.$ 
