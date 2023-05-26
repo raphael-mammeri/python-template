@@ -1,4 +1,6 @@
 mkdocs-material==8.5.11
+mkdocs-numbered-admonitions-plugin @git+https://framagit.org/domart/mkdocs-numbered-admonitions-plugin
+mkdocs-enumerate-headings-plugin
 mkdocstrings[python]==0.18
 mkdocs-gen-files==0.4.0
 mkdocs-literate-nav==0.6.0
