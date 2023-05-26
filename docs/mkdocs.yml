@@ -57,22 +57,7 @@ plugins:
           setup_commands:
             - import sys
             - sys.path.append("../my_package")
-  - enumerate-headings:
-      toc_depth: 3
-      strict: true
-      increment_across_pages: true
-      include:
-        - "*"
-      exclude:
-        - index.md
-        - another_page.md
-      restart_increment_after:
-        - probability/measure theory.md
-  - numbered-admonitions:
-      admonition_types_to_number:
-          'note': 'Theorem'
-          'info': 'Un autre titre'
-          'tip': 'Un autre titre'
+
 
 markdown_extensions:
 
