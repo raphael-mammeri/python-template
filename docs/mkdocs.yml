@@ -37,7 +37,7 @@ nav:
     - measure theory: probability/measure theory.md
     - funtions: probability/funtions.md
   - Contributing: project/contribution.md
-  #- Code documentation: reference/
+  - Code documentation: reference/
 
 plugins:
   - search
