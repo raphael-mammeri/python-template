@@ -11,6 +11,7 @@ theme:
   icon:
     repo: fontawesome/brands/gitlab
   name: material
+  text-align: justify
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"

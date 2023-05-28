@@ -1,7 +1,7 @@
 """Tests for hello function."""
 import pytest
 
-from my_package.module.example import hello
+from my_package.module.this import hello
 
 
 @pytest.mark.parametrize(

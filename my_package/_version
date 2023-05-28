@@ -1,2 +1,2 @@
 """Package version (handled by setuptools_scm)"""
-__version__ = "0.1.dev16+gcec074f.d20230516"
+__version__ = "0.1.dev37+g07a369e.d20230528"

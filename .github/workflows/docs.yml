@@ -17,6 +17,7 @@ jobs:
       - run: |
           make dev-environment
       - run: |
+          pip install .
           cd docs
           pip freeze
           mkdocs gh-deploy --force
